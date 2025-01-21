@@ -7,12 +7,11 @@ dotenv.config();
 const port =process.env.PORT || 5000;
 
 const {signup} = require('./routes/signup');
+const {login} = require('./routes/login');
 
 app.use('/api/user', router);
 router.post('/signup',signup);
-app.get('/',(req,res)=>{
-    res.send('Hello World!')
-})
+router.post('/login',login);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 })
