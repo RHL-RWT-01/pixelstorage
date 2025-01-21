@@ -24,6 +24,10 @@ function Signup() {
   return (
     <>
       <div style={{ textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
         width: "30%",
         margin: "auto",
         height: "25vh",
