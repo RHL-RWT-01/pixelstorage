@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 
 exports.signup = async (req, res) => {
   const { username, email, password } = req.body;
+  console.log(req.body);
   try {
     const isExist = await User.find({ username: username });
     if (isExist.length > 0) {
