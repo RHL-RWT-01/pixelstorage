@@ -6,6 +6,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 const port =process.env.PORT || 5000;
 
+const cors = require('cors');
+
+app.use(cors());
 const {signup} = require('./routes/signup');
 const {login} = require('./routes/login');
 
