@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-function Uploadimage() {
+function UploadImage() {
     const[file,setFile]=useState(null)
 
     const handleFileChange=(e)=>{
@@ -43,4 +43,4 @@ function Uploadimage() {
   )
 }
 
-export default Uploadimage
+export default UploadImage
