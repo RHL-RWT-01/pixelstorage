@@ -31,7 +31,21 @@ function ImageDecryption() {
 
   return (
     <>
-      <div>
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "25vh",
+        width: "50%",
+        borderRadius: "10px",
+        padding: "20px",
+        boxSizing: "border-box",
+        fontFamily: "Arial, sans-serif",
+        borderRadius: "10px",
+        padding: "20px",
+        boxSizing: "border-box",
+        backgroundColor: "rgba(235, 235, 82, 0.8)",
+      }} >
         <form onSubmit={handleSubmit}>
           <input type="file" onChange={handleFileChange} />
           <input

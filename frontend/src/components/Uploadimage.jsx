@@ -35,9 +35,13 @@ function UploadImage() {
       <div style={{
         border: "1px solid black",
         padding: "10px",
-        backgroundColor: "rgba(204, 225, 141, 0.8)",
+        fontSize: "20px",
+        backgroundColor: "rgba(235, 82, 120, 0.8)",
         height: "100px",
-        width: "50%",
+        width: "40%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
        }}>
         <h2>
           <form onSubmit={handleSubmit}>
