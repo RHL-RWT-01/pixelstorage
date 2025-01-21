@@ -34,7 +34,7 @@ function Signup() {
         padding: "20px",
         backgroundColor: "rgba(17, 83, 225, 0.8)",
         borderRadius: "10px",
-        boxShadow: "1px 1px 10px rgba(13, 60, 248, 0.8)"
+        boxShadow: "4px 4px 10px rgba(13, 60, 248, 0.8)"
        }}>
         <h2>Signup</h2>
         <form onSubmit={handleSubmit}>
@@ -63,7 +63,7 @@ function Signup() {
           <br />
           <br />
           <button style={{
-            backgroundColor: "rgba(17, 83, 225, 0.8)",
+            backgroundColor: "rgba(20, 54, 128, 0.8)",
             color: "white",
             borderRadius: "5px",
             padding: "10px 20px",

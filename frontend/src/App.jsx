@@ -9,6 +9,9 @@ function App() {
       <h1>Welcome to Pixel Storage</h1>
 
       <Signup/>
+      <br/>
+      <br/>
+      <br/>
       <Login/>
     </>
   )
