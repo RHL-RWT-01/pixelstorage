@@ -1,9 +1,20 @@
 const express = require('express');
 const app = express();
 app.use(express.json());
-const router= express.router();
+const router= express.Router();
+const dotenv = require('dotenv');
+dotenv.config();
+const port =process.env.PORT || 5000;
 
+const {signup} = require('./routes/signup');
 
 app.use('/api/user', router);
+router.post('/signup',signup);
+app.get('/',(req,res)=>{
+    res.send('Hello World!')
+})
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+})
 
 
