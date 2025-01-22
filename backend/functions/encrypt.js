@@ -8,7 +8,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const SECRET_KEY = process.env.SECRET_KEY || "default_secret";
-
 const router = express.Router();
 
 // Set up multer to handle image uploads
@@ -21,10 +20,16 @@ const upload = multer({ storage: storage });
 router.post("/encrypt", upload.single("image"), async (req, res) => {
   try {
     const { message } = req.body;
+
+    if (!message) {
+      return res.status(400).json({ error: "Message is required" });
+    }
+
     const imageBuffer = req.file.buffer;
 
-    // Encrypt the message with AES-256-CBC
-    const cipher = crypto.createCipher("aes-256-cbc", SECRET_KEY);
+    // Generate a random IV (Initialization Vector) for AES-256-CBC encryption
+    const iv = crypto.randomBytes(16);
+    const cipher = crypto.createCipheriv("aes-256-cbc", Buffer.from(SECRET_KEY, "utf-8"), iv);
     let encryptedMessage = cipher.update(message, "utf8", "hex");
     encryptedMessage += cipher.final("hex");
 

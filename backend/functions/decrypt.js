@@ -2,12 +2,20 @@ const express = require("express");
 const multer = require("multer");
 const Jimp = require("jimp"); // Assuming Jimp is used for image processing
 const fs = require("fs");
+const path = require("path");
+
 const router = express.Router();
+
+// Ensure the uploads folder exists
+const uploadsDir = path.join(__dirname, "uploads");
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir); // Create the folder if it doesn't exist
+}
 
 // Set up storage for uploaded files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./uploads"); // Ensure this folder exists
+    cb(null, uploadsDir); // Save uploaded files in the 'uploads' folder
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + "-" + file.originalname);
@@ -50,7 +58,8 @@ router.post("/decrypt", upload.single("image"), async (req, res) => {
     const imagePath = req.file.path;
     const decryptedMessage = await extractMessageFromImage(imagePath);
 
-    fs.unlinkSync(imagePath); // Remove the image file after processing
+    // Optionally, delete the image after processing (keeping only the message)
+    fs.unlinkSync(imagePath);
 
     res.status(200).json({
       message: "Message decrypted successfully",
