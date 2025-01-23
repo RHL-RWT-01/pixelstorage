@@ -28,9 +28,9 @@ function Signup() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        width: "30%",
+        width: "100%",
         margin: "auto",
-        height: "25vh",
+        height: "100vh",
         padding: "20px",
         backgroundColor: "rgba(17, 83, 225, 0.8)",
         borderRadius: "10px",
@@ -67,7 +67,7 @@ function Signup() {
             color: "white",
             borderRadius: "5px",
             padding: "10px 20px",
-            fontSize: "16px",
+            fontSize: "26px",
             cursor: "pointer",
           }}
            type="submit">Signup</button>
