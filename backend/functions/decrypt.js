@@ -5,14 +5,10 @@ const fs = require("fs");
 const path = require("path");
 
 const router = express.Router();
-
-// Ensure the uploads folder exists
 const uploadsDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir); // Create the folder if it doesn't exist
 }
-
-// Set up storage for uploaded files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, uploadsDir); // Save uploaded files in the 'uploads' folder
@@ -23,8 +19,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-
-// Utility to extract message from an image
 const extractMessageFromImage = async (imagePath) => {
   try {
     const image = await Jimp.read(imagePath);
